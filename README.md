@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 - [ ] User can **see embedded image media within a tweet** on list or detail view.
 - [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 - [ ] User can view following / followers list through any profile they view.
-- [] User is using **"Twitter branded" colors and styles**
+- [ ] User is using **"Twitter branded" colors and styles**
 
 The following **additional** features are implemented:
 
