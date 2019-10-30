@@ -26,12 +26,12 @@ The following **optional** features are implemented:
 - [ ] User can **see embedded image media within a tweet** on list or detail view.
 - [ ] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 - [ ] User can view following / followers list through any profile they view.
-- [ ] User is using **"Twitter branded" colors and styles**
+- [x] User is using **"Twitter branded" colors and styles** (Dark mode)
 
 The following **additional** features are implemented:
 
 - [x] List anything else that you can get done to improve the app functionality!
-  - [x] Background color, adjusted margins for each tweet, bolded fonts, rounded-style profile images
+  - [x] Background color, adjusted margins for each tweet, bold fonts, rounded-style profile images
 
 ## Video Walkthrough
 
