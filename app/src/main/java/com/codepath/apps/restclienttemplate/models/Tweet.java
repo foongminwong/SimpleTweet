@@ -2,9 +2,16 @@ package com.codepath.apps.restclienttemplate.models;
 
 import android.text.format.DateUtils;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,12 +19,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+@Parcel
+@Entity(foreignKeys = @ForeignKey(entity = User.class, parentColumns = "id", childColumns = "userId"))
+
 public class Tweet {
-    public String body;
-    public String createdAt;
-    public String relativeTime;
+
+
+    @ColumnInfo
+    @PrimaryKey
     public long id;
+
+    @ColumnInfo
+    public String body;
+
+    @ColumnInfo
+    public String createdAt;
+
+    @ColumnInfo
+    public String relativeTime;
+
+    @ColumnInfo
+    public long userId;
+
+    @Ignore
     public User user;
+
+    public Tweet(){
+        //empty constructor needed by Parceler Library
+    }
 
     // use the given JSON Object and put this into the model
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
@@ -26,7 +55,12 @@ public class Tweet {
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.relativeTime = getRelativeTimeAgo(tweet.createdAt);
         tweet.id = jsonObject.getLong("id");
-        tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+        User user = User.fromJson(jsonObject.getJSONObject("user"));
+//        tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+
+        tweet.user = user;
+        tweet.userId = user.id;
+
         return tweet;
     }
 
